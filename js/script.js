@@ -4,33 +4,23 @@
 
 
 $(function(){
-	if(isNaN(localStorage.getItem("progress"))){
+	console.log('first' + localStorage.getItem("progress"));
+	if(localStorage.getItem("progress") == null){
 		localStorage.setItem("progress", "0");
 	}
-	var prog = 0;
-	if (typeof(localStorage) == 'undefined' ) {
-		alert('Your browser does not support HTML5 localStorage. Try upgrading.');
-	}else{
-		prog = localStorage.getItem("progress")
-		//alert('Your browser does  support HTML5 localStorage. :' + prog);
-	}
-
-	
-	var prog = parseInt(localStorage.getItem("progress"));
-	if(typeof(prog) !=  "number"){
-		prog = parseInt(prog);
-		alert(prog + ' not undef'+ typeof(prog));
-	}
-	//console.log('foo' + prog);
+	var prog = localStorage.getItem("progress");
 	$('#about').dialog({ autoOpen: false ,modal:true, title:'About'});
 	$('#attaboy').dialog({ autoOpen: false ,modal:true, title:'Alert'});
 
-	$( "#progressbar" ).progressbar({value: prog});
-	$('#hey').button().click(function(){
-		$("#about").dialog("open");
+	$( "#progressbar" ).progressbar({value: parseInt(prog)});
+	$('#hey').button().click(function(){ 
+		$("#about").dialog("open").html('you are ' +  localStorage.getItem("progress") + '% of the way there, keep going!' );
 	});
 	$('#step').button().click(function(){
 			var val = localStorage.getItem("progress");
+			if(isNaN(val)){
+				val = 0;
+			}
 			val = parseInt(val) + 1;
 			if(val>=100){
 				$("#attaboy").dialog("open").html('great job!');
