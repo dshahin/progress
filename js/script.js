@@ -4,6 +4,9 @@
 
 
 $(function(){
+	if(isNaN(localStorage.getItem("progress"))){
+		localStorage.setItem("progress", "0");
+	}
 	var prog = 0;
 	if (typeof(localStorage) == 'undefined' ) {
 		alert('Your browser does not support HTML5 localStorage. Try upgrading.');
@@ -12,9 +15,13 @@ $(function(){
 		//alert('Your browser does  support HTML5 localStorage. :' + prog);
 	}
 
-
+	
 	var prog = parseInt(localStorage.getItem("progress"));
-	console.log(prog);
+	if(typeof(prog) !=  "number"){
+		prog = parseInt(prog);
+		alert(prog + ' not undef'+ typeof(prog));
+	}
+	//console.log('foo' + prog);
 	$('#about').dialog({ autoOpen: false ,modal:true, title:'About'});
 	$('#attaboy').dialog({ autoOpen: false ,modal:true, title:'Alert'});
 
