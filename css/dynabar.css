@@ -1,0 +1,8 @@
+.chart rect {
+	fill: orange;
+	stroke: white;
+}
+.chart rect:hover {
+	fill: white;
+	stroke: black;
+}
