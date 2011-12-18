@@ -1,8 +1,10 @@
 .chart rect {
-	fill: orange;
+	fill: #89FFB0;
 	stroke: white;
 }
 .chart rect:hover {
-	fill: white;
-	stroke: black;
+	fill: orange;
+	z-index: 1002;
+	stroke: white;
+	width: 20px;
 }

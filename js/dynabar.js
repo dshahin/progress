@@ -4,8 +4,8 @@ var dynabar ={
 	x : null,
 	y : null,
 	w : 10,
-	h : 50,
-	numBars : 70	,
+	h : 100,
+	numBars : 65,
 	everyInterval : 1000,
 	interval : null,
 	refresh : function(){
